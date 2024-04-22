@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header
       className={`w-full flex items-center justify-center h-12 z-10 fixed shadow-md ${
-        top ? "bg-zinc-50" : "bg-zinc-50/25"
+        top ? "bg-baseWhite" : "bg-baseWhite/25"
       }`}
     >
       <div className="w-[96%] xl:w-full max-w-7xl mx-auto ">
