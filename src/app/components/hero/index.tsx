@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 
 interface HeroData {
   heading: string;
   buttonUrl: string;
   buttonTitle: string;
   bannerUrl: string;
+  icon: ReactNode;
 }
 
 export function Hero(props: HeroData) {
@@ -22,14 +24,16 @@ export function Hero(props: HeroData) {
           />
         </div>
         <div className="absolute flex flex-col gap-6 items-center justify-center">
-          <h1 className="text-baseWhite text-3xl md:text-4xl font-extrabold w-3/4 text-center">
+          <h1 className="text-baseWhite text-3xl md:text-[44px] font-bold w-[60%] text-center">
             {props.heading}
           </h1>
           <a
-            className="bg-baseButton text-baseWhite font-semibold p-3 px-16 rounded-md shadow-md hover:scale-105 duration-200"
+            className="flex items-center gap-2 bg-baseButton text-baseWhite font-semibold 
+            p-2.5 px-14 rounded-md shadow-md hover:scale-105 duration-200"
             target="_blank"
             href={props.bannerUrl}
           >
+            {props.icon}
             {props.buttonTitle}
           </a>
         </div>
