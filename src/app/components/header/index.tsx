@@ -40,13 +40,13 @@ export function Header() {
             </Link>
             <Link
               className="uppercase text-xs hover:font-medium duration-300"
-              href={"/#servicos"}
+              href={"/#services"}
             >
               sobre
             </Link>
             <Link
               className="uppercase text-xs hover:font-medium duration-300"
-              href={"/#contatos"}
+              href={"/#contact"}
             >
               contatos
             </Link>
