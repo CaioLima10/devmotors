@@ -5,6 +5,7 @@ import { Hero } from "./components/hero";
 import { FaWhatsapp } from "react-icons/fa";
 import { Services } from "./components/services";
 import { Container } from "./components/container";
+import { Footer } from "./components/footer";
 
 export default async function Home() {
   const { object }: HomeData = await getDataHome();
@@ -21,6 +22,11 @@ export default async function Home() {
       />
       <Container>
         <Services object={object} />
+        <Footer object={object} />
+        <span className="w-full flex items-center justify-center mx-auto">
+          Todos direitos reservados {object.title} @
+          {`${new Date().getFullYear()}`}
+        </span>
       </Container>
     </main>
   );
