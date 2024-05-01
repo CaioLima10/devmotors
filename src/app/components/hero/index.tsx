@@ -31,7 +31,7 @@ export function Hero(props: HeroData) {
             className="flex items-center gap-2 bg-baseButton text-baseWhite font-semibold 
             p-2.5 px-14 rounded-md shadow-md hover:scale-105 duration-200"
             target="_blank"
-            href={props.bannerUrl}
+            href={props.buttonUrl}
           >
             {props.icon}
             {props.buttonTitle}
