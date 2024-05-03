@@ -35,7 +35,7 @@ export async function Services({ object }: HomeData) {
           <article className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {object.metadata.services.map((service, index) => (
               <>
-                <div key={index} className="relative w-50 h-60  group">
+                <div key={index} className="relative w-50 h-60 group">
                   <div className=" overflow-hidden rounded-xl">
                     <Image
                       fill
