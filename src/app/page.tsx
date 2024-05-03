@@ -25,10 +25,6 @@ export default async function Home() {
       <Container>
         <Services object={object} />
         <Footer object={object} />
-        <span className="w-full flex items-center justify-center mx-auto">
-          Todos direitos reservados {object.title} @
-          {`${new Date().getFullYear()}`}
-        </span>
       </Container>
     </main>
   );
