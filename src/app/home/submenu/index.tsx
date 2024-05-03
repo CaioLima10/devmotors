@@ -63,15 +63,21 @@ export function SubMenu({ subMenu }: SubMenuProps) {
           >
             <X size={24} className="text-baseWhite" />
           </button>
-          {subMenu.objects.map((menu, index) => (
-            <li
-              key={index}
-              className="bg-baseBackground text-baseWhite hover:bg-baseWhite hover:text-baseBackground hover:ring-1 hover:ring-baseBackground
-            duration-300 p-1 px-3 mt-24 sm:mt-0 rounded-sm"
-            >
-              <Link href={`/post/${menu.slug}`}>{menu.title}</Link>
-            </li>
-          ))}
+          <div
+            className={`gap-4 ${isOpen ? "mt-28" : "mt-0"} ${
+              isOpen ? "flex flex-col" : "flex flex-row"
+            }`}
+          >
+            {subMenu.objects.map((item) => (
+              <li
+                key={item.title}
+                className="bg-baseBackground text-baseWhite hover:bg-baseWhite hover:text-baseBackground hover:ring-1 hover:ring-baseBackground
+            duration-300 p-1 mt-3 flex items-center justify-center rounded-md px-3 sm:mt-0"
+              >
+                <Link href={`/post/${item.slug}`}>{item.title}</Link>
+              </li>
+            ))}
+          </div>
         </ul>
       </div>
     </div>
