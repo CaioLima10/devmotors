@@ -1,12 +1,18 @@
 "use client";
 
+import { SubMenuData } from "@/utils/submenu-type";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export function SubMenu() {
+interface SubMenuProps {
+  subMenu: SubMenuData;
+}
+
+export function SubMenu({ subMenu }: SubMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log();
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 640) {
@@ -57,18 +63,15 @@ export function SubMenu() {
           >
             <X size={24} className="text-baseWhite" />
           </button>
-          <li
-            className="bg-baseBackground text-baseWhite hover:bg-baseWhite hover:text-baseBackground hover:ring-1 hover:ring-baseBackground
+          {subMenu.objects.map((menu, index) => (
+            <li
+              key={index}
+              className="bg-baseBackground text-baseWhite hover:bg-baseWhite hover:text-baseBackground hover:ring-1 hover:ring-baseBackground
             duration-300 p-1 px-3 mt-24 sm:mt-0 rounded-sm"
-          >
-            <Link href={"/post/1"}>Página 1</Link>
-          </li>
-          <li
-            className="bg-baseBackground text-baseWhite hover:bg-baseWhite hover:text-baseBackground hover:ring-1 
-            hover:ring-baseBackground duration-300 p-1 px-3 rounded-sm"
-          >
-            <Link href={"/post/2"}>Página 2</Link>
-          </li>
+            >
+              <Link href={`/post/${menu.slug}`}>{menu.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
