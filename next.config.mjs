@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.cosmicjs.com",
       },
+      {
+        protocol: "https",
+        hostname: "imgix.cosmicjs.com",
+      },
     ],
   },
 };
