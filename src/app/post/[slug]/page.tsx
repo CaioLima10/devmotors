@@ -5,6 +5,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeData } from "@/utils/home-type";
 import { FaWhatsapp } from "react-icons/fa";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  try {
+    const { objects }: PostProps = await getItemBySlug(slug).catch(() => {
+      return {
+        title: "DevMotors - Sua oficina especializada!",
+        description: "Oficinal de carros em São Paulo",
+      };
+    });
+
+    return {
+      title: `Metadata - ${objects[0].title}`,
+      description: `${objects[0].metadata.description}`,
+      openGraph: {
+        title: `DevMotors - ${objects[0].title}`,
+        images: [objects[0].metadata.banner.url],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: true,
+        },
+      },
+    };
+  } catch (err) {
+    return {
+      title: "DevMotors - Sua oficina especializada!",
+      description: "Oficinal de carros em São Paulo",
+    };
+  }
+}
 
 export default async function Page({
   params: { slug },
